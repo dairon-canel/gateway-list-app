@@ -8,9 +8,15 @@ export default ({ mode }) => {
   return defineConfig({
     server: {
       proxy: {
-        port: process.env.VITE_VERCEL_PORT,
-        '/api': process.env.VITE_VERCEL_DOMAIN,
+        '/api': {
+          target:
+            'https://api-rest-ts-node-gateways-master-production.up.railway.app',
+          changeOrigin: true,
+          secure: false,
+          rewrite: path => path.replace(/^\/api/, ''),
+        },
       },
+      cors: false,
     },
     plugins: [react()],
   });

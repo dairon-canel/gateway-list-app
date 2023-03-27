@@ -20,9 +20,12 @@ export const createGatewayService = async ({
 };
 
 export const getGatewaysService = async () => {
-  const response = await fetch('/api/gateways', {
-    headers: { Accept: 'application/json' },
-  });
+  const response = await fetch(
+    'https://api-rest-ts-node-gateways-master-production.up.railway.app/api/gateways',
+    {
+      headers: { Accept: 'application/json' },
+    },
+  );
   if (!response.ok) {
     throw new Error('Error retrieving Gateway');
   }

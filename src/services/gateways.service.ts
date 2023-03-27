@@ -11,7 +11,6 @@ export const createGatewayService = async ({
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({ name, ipv4Address }),
   });
@@ -28,7 +27,6 @@ export const getGatewaysService = async () => {
     {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
     },
   );
@@ -43,7 +41,6 @@ export const deleteGatewaysService = async (serialNumber: string) => {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
   });
   if (!response.ok) {
@@ -63,7 +60,6 @@ export const editGatewaysService = async ({
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify(gateway),
   });

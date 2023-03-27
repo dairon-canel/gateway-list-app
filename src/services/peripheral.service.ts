@@ -11,7 +11,6 @@ export const createPeripheralService = async ({
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({ ...peripheral, gateway_id: serialNumber }),
   });
@@ -26,7 +25,6 @@ export const getPeripheralsByGatewayService = async (serialNumber: string) => {
   const response = await fetch(`/api/peripherals/${serialNumber}/all`, {
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
   });
   if (!response.ok) {
@@ -39,7 +37,6 @@ export const getAllPeripheralsService = async () => {
   const response = await fetch('/api/peripherals', {
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
   });
   if (!response.ok) {
@@ -60,7 +57,6 @@ export const updatePeripheralService = async ({
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify(peripheral),
   });
@@ -75,7 +71,6 @@ export const deletePeripheralsService = async (uid: string) => {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
   });
   if (!response.ok) {

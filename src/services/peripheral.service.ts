@@ -9,7 +9,10 @@ export const createPeripheralService = async ({
 }) => {
   const response = await fetch(`/api/peripherals/${serialNumber}`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
     body: JSON.stringify({ ...peripheral, gateway_id: serialNumber }),
   });
 
@@ -21,7 +24,10 @@ export const createPeripheralService = async ({
 
 export const getPeripheralsByGatewayService = async (serialNumber: string) => {
   const response = await fetch(`/api/peripherals/${serialNumber}/all`, {
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
   });
   if (!response.ok) {
     throw new Error('Error retrieving peripherals');
@@ -31,7 +37,10 @@ export const getPeripheralsByGatewayService = async (serialNumber: string) => {
 
 export const getAllPeripheralsService = async () => {
   const response = await fetch('/api/peripherals', {
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
   });
   if (!response.ok) {
     throw new Error('Error retrieving peripherals');
@@ -49,7 +58,10 @@ export const updatePeripheralService = async ({
   console.log(peripheral);
   const response = await fetch(`/api/peripherals/${uid}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
     body: JSON.stringify(peripheral),
   });
   if (!response.ok) {
@@ -61,7 +73,10 @@ export const updatePeripheralService = async ({
 export const deletePeripheralsService = async (uid: string) => {
   const response = await fetch(`/api/peripherals/${uid}`, {
     method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
   });
   if (!response.ok) {
     throw new Error('Error deleting Peripheral');

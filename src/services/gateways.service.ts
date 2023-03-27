@@ -9,7 +9,10 @@ export const createGatewayService = async ({
 }) => {
   const response = await fetch('/api/gateways', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
     body: JSON.stringify({ name, ipv4Address }),
   });
 
@@ -23,7 +26,10 @@ export const getGatewaysService = async () => {
   const response = await fetch(
     'https://api-rest-ts-node-gateways-master-production.up.railway.app/api/gateways',
     {
-      headers: { Accept: 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
     },
   );
   if (!response.ok) {
@@ -35,7 +41,10 @@ export const getGatewaysService = async () => {
 export const deleteGatewaysService = async (serialNumber: string) => {
   const response = await fetch(`/api/gateways/${serialNumber}`, {
     method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
   });
   if (!response.ok) {
     throw new Error('Error retrieving Gateway');
@@ -52,7 +61,10 @@ export const editGatewaysService = async ({
 }) => {
   const response = await fetch(`/api/gateways/${serialNumber}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
     body: JSON.stringify(gateway),
   });
   if (!response.ok) {
